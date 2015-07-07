@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app='FlixRate'>
+  <link rel="shortcut icon" href="http://faviconist.com/icons/4c786bddb8c886e0ba1c6191fd75fc06/favicon.ico" />
+  <head>
+    <meta charset="utf-8" />
+    <title>FlixRate</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+  </head>
+  <body>
+    <h1>FlixRate Movie Database</h1>
+    <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
+    <div class='navigation'>
+      <ul>
+        <li><a href='/#/addmovie' class='index'>Add a Movie</a></li>
+        <li><a href='/#/movies' class='create'>View Movie Database</a></li>
+        <!-- <li><a href='/#/logout' class='logout'>Logout</a></li> -->
+      </ul>
+    </div>
+    <div ng-view></div>
+    <div class="footer">
+      <footer>
+        <p>Created by: Paul Sokolik</p>
+        <div>
+          <span><a href="https://github.com/sokolikp" target="_blank"><p>GitHub</p></a></span>
+          <span><a href="https://www.linkedin.com/in/paulsokolik" target="_blank"><p>LinkedIn</p></a></span>
+          <span><a href="http://paulsokolik.com/" target="_blank"><p>Blog</p></a></span>
+        </div>
+      </footer>
+  </div>
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+
+    <script src="app/addmovie/addmovie.js"></script>
+    <script src="app/movies/movies.js"></script>
+    <script src="app/services/services.js"></script>
+    <script src="app/app.js"></script>
+  </body>
+</html>

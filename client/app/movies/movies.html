@@ -1,0 +1,34 @@
+<div id='container'>
+  <input ng-model=search placeholder='Search for an existing movie'>
+  <div class='movie-list' ng-show='showMovies'>
+    <div class='movie-box' ng-repeat="movie in data.movies | filter: search | orderBy: '-(upvotes-downvotes)'">
+      <div id='rating'>{{$index + 1}}.)</div>
+      <img class='movie-poster' src='{{movie.poster}}'>
+      <div class='movie-info' >
+        <div class='votes'>
+          <span class='upvotes'>{{movie.upvotes}} Upvotes</span>
+          <span class='downvotes'>{{movie.downvotes}} Downvotes</span>
+          <button class='upvote' ng-click='upvote(movie)'>I liked it!</button>
+          <button class='downvote' ng-click='downvote(movie)'>Boooo!</button>
+        </div>
+        <div class='title'>Title: {{movie.title}}</div>
+        <div class='year'>Year: {{movie.year}}</div>
+        <div class='genre'>Genre: {{movie.genre}}</div>
+        <div class='writer'>Writer: {{movie.writer}}</div>
+        <div class='director'>Director: {{movie.director}}</div>
+        <div class='actors'>Actors: {{movie.actors}}</div>
+        <div class='imdb'>IMDB Rating: {{movie.IMDBscore}}</div>
+        <div class='imdb-votes'>IMDB Votes: {{movie.IMDBvotes | number}}</div>
+        <button class='showplot' ng-click='showplot($index)'>Show/Hide Plot</button>
+        <div class='plot' ng-show='showPlot'>Plot: {{movie.plot}}</div>
+        <form ng-controller='MoviesController' ng-submit='postComment(movie, comment)' class='comment-box'>
+          <input class='movie-comment' type='text' ng-model='comment' placeholder='Leave a comment...'>
+          <div ng-controller='MoviesController' ng-repeat='comment in movie.comments'>
+            <div>{{comment}}</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

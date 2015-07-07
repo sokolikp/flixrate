@@ -1,0 +1,32 @@
+<div id='container'>
+  <form name='HRMDBForm'>
+      <input ng-model='movie'
+             type='text'
+             name='movie'
+             placeholder="Find a new movie"
+             required>
+      <input ng-model='year'
+             type='number'
+             name='year'
+             placeholder="Enter a year"
+             required>
+      <input ng-click='addMovie(movie, year)'
+             type='submit'
+             value='Search'>
+  </form>
+  <img ng-show=spinner src='assets/spiffygif_46x46.gif'/>
+  <div ng-show='notFound' class='not-found' type='text'>Movie not found. Try again.</div>
+  <div ng-show='movieBody' ng-model='data.movie' class='movie-data' type='text'>
+    <img src='{{data.movie.poster}}'/>
+    <div class='title'>Title: {{data.movie.title}}</div>
+    <div class='year'>Year: {{data.movie.year}}</div>
+    <div class='genre'>Genre: {{data.movie.genre}}</div>
+    <div class='writer'>Writer: {{data.movie.writer}}</div>
+    <div class='director'>Director: {{data.movie.director}}</div>
+    <div class='actors'>Actors: {{data.movie.actors}}</div>
+    <div class='plot'>Plot: {{data.movie.plot}}</div>
+    <div class='imdb'>IMDB Rating: {{data.movie.IMDBscore}}</div>
+    <div class='imdb-votes'>IMDB Votes: {{data.movie.IMDBvotes | number}}</div>
+  </div>
+</div>
+
